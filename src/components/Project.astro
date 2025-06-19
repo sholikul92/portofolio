@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+
+const projects = [
+  {
+    id: 1,
+    name: 'Happy City Indonesia',
+    imageUrl: '/happy-city-indonesia.png',
+    description:
+      'Website company profile interaktif untuk PT. Happy City Indonesia, dibangun dengan Next.js. Fitur utama meliputi landing page, product, dan integrasi Dashboard admin untuk mengelola produk yang di tampilkan.',
+    link: 'https://www.happycity.co.id',
+    techStack: ['Next Js', 'Supabase', 'Lucia Auth', 'Prisma', 'ShadcnUI'],
+  },
+  {
+    id: 2,
+    name: 'Rajawali Futsal Arena',
+    imageUrl: '/rajawali-futsal-arena.png',
+    description:
+      'Aplikasi web untuk booking lapangan futsal secara online, dilengkapi sistem manajemen jadwal, pembayaran Midtrans, dan download invoice. Dibuat menggunakan Next.js, Supabase, dan Tailwind CSS.',
+    link: 'https://rajawalifutsal.vercel.app',
+    techStack: ['Next Js', 'Next Auth', 'Supabase', 'Prisma', 'Hero UI'],
+  },
+  {
+    id: 3,
+    name: 'Rizal Cartridge',
+    imageUrl: '/rizal-cartridge.png',
+    description:
+      'Landing page untuk penjualan tinta dan cartridge printer. Dibuat dengan Astro JS dan terintegrasi langsung ke WhatsApp pemilik untuk proses pemesanan cepat dan langsung.',
+    link: 'https://www.rizalcartridge.com',
+    techStack: ['Astro Js', 'Tailwind css'],
+  },
+  {
+    id: 4,
+    name: 'Syila Printer',
+    imageUrl: '/syila-printer.png',
+    description:
+      'Website landing page penjualan tinta dan cartridge dengan tampilan minimalis dan akses cepat ke WhatsApp. Dikembangkan menggunakan Astro JS dan Tailwind CSS.',
+    link: 'https://www.syilaprinter.com',
+    techStack: ['Astro Js', 'Tailwind css'],
+  },
+];
+---
+
+<section class='w-full flex flex-col justify-center items-center'>
+  <h1 class='mb-8 text-xl font-semibold text-black/60'>Project Saya</h1>
+  <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+    {
+      projects.map((project) => (
+        <div class='bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-100 w-md'>
+          <Image
+            src={project.imageUrl}
+            alt={project.name}
+            width={200}
+            height={100}
+            class='w-full h-fit object-cover'
+          />
+          <div class='p-6'>
+            <h3 class='text-xl font-semibold mb-2'>{project.name}</h3>
+            <p class='text-gray-600 mb-4'>{project.description}</p>
+            <div class='flex flex-wrap gap-2 mb-4'>
+              {project.techStack.map((tech) => (
+                <span class='bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full'>
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <a
+              href={project.link}
+              target='_blank'
+              class='text-blue-500 font-semibold hover:underline'
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

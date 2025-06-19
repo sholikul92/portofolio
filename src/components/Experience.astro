@@ -1,0 +1,65 @@
+---
+const experiences = [
+  {
+    id: 1,
+    title: 'Front End Web Developer',
+    company: 'PT. Happy City Indonesia',
+    year: 'Maret 2025 - Sekarang',
+    description: [
+      'Membangun halaman landing page dan halaman informasi perusahaan.',
+      'Mengintegrasikan konten dinamis dari backend menggunakan API.',
+      'Berkolaborasi dengan tim desain untuk menerjemahkan wireframe ke UI yang interaktif.',
+      'Melakukan optimasi performa dan SEO dasar untuk halaman statis.',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Peserta & Asisten Mentor - Ruang Guru Camp Batch 7',
+    company: 'PT. Ruang Raya Indonesia',
+    year: 'Agustus 2024 - Desember 2024',
+    description: [
+      'Mengerjakan berbagai proyek latihan dengan standar industri.',
+      'Membantu peserta memahami materi materi pelajaran yang telah diberikan',
+      'Memberikan review kode dan mentoring selama sesi belajar.',
+    ],
+  },
+  {
+    id: 3,
+    title: 'Divisi Pemrograman',
+    company: 'Community Of Information Technology',
+    year: '2023-2024',
+    description: [
+      'Menyusun materi pelatihan untuk anggota',
+      'Berkoordinasi dengan divisi lain untuk mengadakan event dan pelatihan',
+      'Membantu peserta pelatihan untuk memahami pelajaran yang diberikan oleh mentor',
+    ],
+  },
+];
+---
+
+<div class='container px-6'>
+  <h2 class='text-xl font-bold text-center mb-8 mt-8 text-black/60'>
+    Work Experience
+  </h2>
+
+  <div class='max-w-3xl mx-auto'>
+    {
+      experiences.map((experience) => (
+        <div class='mb-10'>
+          <div class='flex flex-col md:flex-row justify-between mb-2'>
+            <h3 class='text-xl font-semibold'>{experience.title}</h3>
+            <span class='text-blue-500'>{experience.year}</span>
+          </div>
+          <div class='flex flex-col md:flex-row justify-between mb-4'>
+            <h4 class='text-gray-600'>{experience.company}</h4>
+          </div>
+          <ul class='list-disc pl-5 space-y-2 text-gray-700'>
+            {experience.description.map((desc) => (
+              <li>{desc}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</div>
